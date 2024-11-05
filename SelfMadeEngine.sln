@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{A447905F-C1CE-435F-8B92-7F074A984367}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SelfMadeEngine_Window", "SelfMadeEngine_Window\SelfMadeEngine_Window.vcxproj", "{76FC0F69-7BE5-4019-BC1A-8011C11193C5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SelfMadeEngine_SOURCE", "SelfMadeEngine_SOURCE\SelfMadeEngine_SOURCE.vcxitems", "{20B82EFF-6406-4900-B645-0238CFD1CDAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,11 +25,23 @@ Global
 		{A447905F-C1CE-435F-8B92-7F074A984367}.Release|x64.Build.0 = Release|x64
 		{A447905F-C1CE-435F-8B92-7F074A984367}.Release|x86.ActiveCfg = Release|Win32
 		{A447905F-C1CE-435F-8B92-7F074A984367}.Release|x86.Build.0 = Release|Win32
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Debug|x64.ActiveCfg = Debug|x64
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Debug|x64.Build.0 = Debug|x64
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Debug|x86.ActiveCfg = Debug|Win32
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Debug|x86.Build.0 = Debug|Win32
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Release|x64.ActiveCfg = Release|x64
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Release|x64.Build.0 = Release|x64
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Release|x86.ActiveCfg = Release|Win32
+		{76FC0F69-7BE5-4019-BC1A-8011C11193C5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66ECC5B7-E1E3-417A-AC1B-8083E8B05362}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SelfMadeEngine_SOURCE\SelfMadeEngine_SOURCE.vcxitems*{20b82eff-6406-4900-b645-0238cfd1cdaa}*SharedItemsImports = 9
+		SelfMadeEngine_SOURCE\SelfMadeEngine_SOURCE.vcxitems*{76fc0f69-7be5-4019-bc1a-8011c11193c5}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
