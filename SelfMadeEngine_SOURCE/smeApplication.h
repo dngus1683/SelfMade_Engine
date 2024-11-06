@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CommonInclude.h"
+#include "smeGameObject.h"
 
 namespace sme
 {
@@ -21,8 +22,9 @@ namespace sme
 		HDC mHdc;
 
 		float mSpeed;
-		float mX;
-		float mY;
+
+
+		GameObject* mPlayer[2];
 	};
 }
 
