@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "../SelfMadeEngine_SOURCE/smeApplication.h"
+#include "../SelfMadeEngine_Window/smeLoadScenes.h"
 
 #define MAX_LOADSTRING 100
 
@@ -125,12 +126,17 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
+
    hInst = hInstance; // Store instance handle in our global variable
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+   // 해상도 크기
+   const UINT width = 1600;
+   const UINT height = 900;
 
-   application.Initialize(hWnd);
+   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, -10000, width, height, nullptr, nullptr, hInstance, nullptr);
+
+   application.Initialize(hWnd, width, height);
 
    if (!hWnd)
    {
@@ -139,6 +145,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // load Scene
+   sme::LoadScenes();
+
 
    return TRUE;
 }

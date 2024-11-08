@@ -11,7 +11,7 @@ namespace sme
 		Application();
 		~Application();
 
-		void Initialize(HWND mHwnd);
+		void Initialize(HWND mHwnd, UINT width, UINT height);
 		void Run();
 		void Update();
 		void LateUpdate();
@@ -21,10 +21,16 @@ namespace sme
 		HWND mHwnd;
 		HDC mHdc;
 
+		// 더블 버퍼링 용 DC
+		HDC mBackHdc;
+		HBITMAP mBackBuffer;
+		
+		// 해상도
+		UINT mWidth;
+		UINT mHeight;
+
 		float mSpeed;
 
-
-		GameObject* mPlayer[2];
 	};
 }
 
