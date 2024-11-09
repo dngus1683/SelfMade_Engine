@@ -16,20 +16,34 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeShape.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)smeApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeShape.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeTransform.cpp" />
   </ItemGroup>
 </Project>

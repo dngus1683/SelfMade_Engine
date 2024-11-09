@@ -7,11 +7,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="smePlayScene.h" />
+    <ClInclude Include="smePlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smePlayScene.cpp" />
     <ClCompile Include="smeLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="smePlayer.cpp" />
   </ItemGroup>
 </Project>

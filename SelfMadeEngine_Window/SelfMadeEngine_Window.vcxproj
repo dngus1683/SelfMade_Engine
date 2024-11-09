@@ -128,10 +128,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="smePlayer.h" />
     <ClInclude Include="smePlayScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeLoadScenes.h" />
+    <ClCompile Include="smePlayer.cpp" />
     <ClCompile Include="smePlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

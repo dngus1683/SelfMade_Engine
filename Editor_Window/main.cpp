@@ -9,6 +9,9 @@
 
 #define MAX_LOADSTRING 100
 
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
+
 // Global Variables:
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
@@ -68,8 +71,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             // 게임 로직
             application.Run();
         }
-
     }
+
+
+    // 프로그램이 종료될 때, 할당한 gdi도 같이 메모리에서 제거.
+    Gdiplus::GdiplusShutdown(gpToken);
 
     /*
     // Main message loop:
@@ -145,6 +151,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // Gdi를 할당한 후, 주소값을 gpToken에 저장.
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // load Scene
    sme::LoadScenes();

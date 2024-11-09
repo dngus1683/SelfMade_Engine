@@ -67,7 +67,7 @@ namespace sme
 		// 화면 초기화
 		Rectangle(mBackHdc, -1, -1, mWidth+1, mHeight+1);
 
-		Time::Render(mBackHdc);
+		// Time::Render(mBackHdc);
 
 		SceneManager::Render(mBackHdc);
 

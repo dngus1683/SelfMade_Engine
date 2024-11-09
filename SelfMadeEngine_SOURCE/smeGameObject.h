@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CommonInclude.h"
+#include "smeComponent.h"
 
 namespace sme
 {
@@ -8,45 +9,40 @@ namespace sme
 	{
 	public:
 		GameObject();
-		GameObject(float InX, float InY, int InType);
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC mHdc);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC mHdc);
 
+		template <typename T>
+		T* AddComponent()
+		{
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
 
-		void SetPosition(const float& x, const float& y)
-		{
-			mX = x;
-			mY = y;
-		}
-		const float GetPositionX() const 
-		{
-			return mX;
-		}
-		const float GetPositionY() const
-		{
-			return mY;
+			return comp;
 		}
 
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component)
+				{
+					break;
+				}
+			}
 
-		void SetType(const int& InType)
-		{
-			mType = InType;
-		}
-		const int GetType() const
-		{
-			return mType;
+			return component;
 		}
 
 	private:
-
-		// 게임 오브젝트 좌표
-		float mX; 
-		float mY;
-
-		// 게임 오브젝트 형태
-		int mType;
+		std::vector<Component*> mComponents;
 	};
 }

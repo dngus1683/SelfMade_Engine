@@ -1,5 +1,9 @@
 #include "smePlayScene.h"
 #include "smeGameObject.h"
+#include "smeTransform.h"
+#include "smeSpriteRenderer.h"
+#include "smePlayer.h"
+#include "smeShape.h"
 
 namespace sme
 {
@@ -15,6 +19,18 @@ namespace sme
 	{
 		GameObject* obj = new GameObject();
 		AddGameObject(obj);
+
+		Player* bg = new Player();
+		
+		Transform* tr = bg->AddComponent<Transform>();
+		tr->SetPos(Vector2(0.f, 0.f));
+		tr->SetName(L"TR");
+		
+		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+		sr->SetName(L"SR");
+		sr->ImageLoad(L"D:/Study/SelfMadeEngine/ImageSource/CloudOcean.png");
+
+		AddGameObject(bg);
 	}
 
 	void PlayScene::Update()
