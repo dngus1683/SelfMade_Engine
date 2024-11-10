@@ -18,9 +18,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h" />
@@ -36,6 +39,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeResources.cpp" />

@@ -4,10 +4,15 @@
 #include "smeSpriteRenderer.h"
 #include "smePlayer.h"
 #include "smeShape.h"
+#include "smeInput.h"
+#include "smeTitleScene.h"
+#include "smeSceneManager.h"
+#include "smeObject.h"
 
 namespace sme
 {
 	PlayScene::PlayScene()
+		: bg(nullptr)
 	{
 	}
 
@@ -17,20 +22,11 @@ namespace sme
 
 	void PlayScene::Initialize()
 	{
-		GameObject* obj = new GameObject();
-		AddGameObject(obj);
+		bg = Instantiate<Player>(eLayerType::BackGroud, Vector2(0.f, 0.f));
 
-		Player* bg = new Player();
-		
-		Transform* tr = bg->AddComponent<Transform>();
-		tr->SetPos(Vector2(0.f, 0.f));
-		tr->SetName(L"TR");
-		
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"D:/Study/SelfMadeEngine/ImageSource/CloudOcean.png");
-
-		AddGameObject(bg);
 	}
 
 	void PlayScene::Update()
@@ -41,11 +37,28 @@ namespace sme
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
+
 	}
 
 	void PlayScene::Render(HDC mHdc)
 	{
 		Scene::Render(mHdc);
+		wchar_t str[50] = L"Play Scene";
+		TextOut(mHdc, 0, 0, str, wcsnlen_s(str, 50));
+	}
+
+	void PlayScene::OnEnter()
+	{
+	}
+
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPos(Vector2(0.f, 0.f));
 	}
 
 }

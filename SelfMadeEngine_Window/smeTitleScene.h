@@ -1,24 +1,20 @@
 #pragma once
+
 #include "../SelfMadeEngine_SOURCE/smeScene.h"
 
 namespace sme
 {
-	class PlayScene : public Scene
+	class TitleScene : public Scene
 	{
 	public:
-		PlayScene();
-		~PlayScene();
+		TitleScene();
+		~TitleScene();
 
 		virtual void Initialize() override;
 		virtual void Update() override;
 		virtual void LateUpdate() override;
 		virtual void Render(HDC mHdc) override;
 
-		void OnEnter() override;
-		void OnExit() override;
-
 	private:
-		class Player* bg;
 	};
 }
-

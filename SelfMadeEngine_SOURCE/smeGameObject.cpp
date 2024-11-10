@@ -1,11 +1,13 @@
 #include "smeGameObject.h"
 #include "smeInput.h"
 #include "smeTime.h"
+#include "smeTransform.h"
 
 namespace sme
 {
 	GameObject::GameObject()
 	{
+		initializeTransform();
 	}
 	GameObject::~GameObject()
 	{
@@ -87,5 +89,10 @@ namespace sme
 		{
 			comp->Render(mHdc);
 		}
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

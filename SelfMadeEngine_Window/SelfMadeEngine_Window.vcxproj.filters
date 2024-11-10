@@ -6,14 +6,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="smePlayScene.h" />
     <ClInclude Include="smePlayer.h" />
+    <ClInclude Include="smePlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="smeTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="smePlayScene.cpp" />
     <ClCompile Include="smeLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="smePlayer.cpp" />
+    <ClCompile Include="smePlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="smeTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

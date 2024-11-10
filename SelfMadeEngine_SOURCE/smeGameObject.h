@@ -20,6 +20,7 @@ namespace sme
 		T* AddComponent()
 		{
 			T* comp = new T();
+			comp->Initialize();
 			comp->SetOwner(this);
 			mComponents.push_back(comp);
 
@@ -41,6 +42,8 @@ namespace sme
 
 			return component;
 		}
+	private:
+		void initializeTransform();
 
 	private:
 		std::vector<Component*> mComponents;
