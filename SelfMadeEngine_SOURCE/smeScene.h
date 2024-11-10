@@ -23,8 +23,8 @@ namespace sme
 		// Scene에서 나올 때 설정.
 		virtual void OnExit();
 
-		void AddGameObject(GameObject* gameObj, eLayerType type);
-		Layer* GetLayer(const eLayerType type) { return mLayers[(UINT)type]; }
+		void AddGameObject(GameObject* gameObj, enums::eLayerType type);
+		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:
 		std::vector<Layer*> mLayers;

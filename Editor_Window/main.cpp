@@ -6,6 +6,7 @@
 
 #include "../SelfMadeEngine_SOURCE/smeApplication.h"
 #include "../SelfMadeEngine_Window/smeLoadScenes.h"
+#include "../SelfMadeEngine_Window/smeLoadResources.h"
 
 #define MAX_LOADSTRING 100
 
@@ -156,6 +157,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // load Scene
+   sme::LoadResources();
    sme::LoadScenes();
 
 

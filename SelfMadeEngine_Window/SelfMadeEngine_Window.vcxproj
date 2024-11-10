@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="smeLoadResources.h" />
     <ClInclude Include="smePlayer.h" />
     <ClInclude Include="smePlayScene.h" />
     <ClInclude Include="smeTitleScene.h" />

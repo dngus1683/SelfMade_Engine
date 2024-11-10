@@ -2,11 +2,22 @@
 
 namespace sme
 {
-	enum class eLayerType
+	namespace enums
 	{
-		None,
-		BackGroud,
-		Player,
-		Max = 16,
-	};
+		enum class eLayerType
+		{
+			None,
+			BackGroud,
+			Player,
+			Max = 16,
+		};
+
+		enum class eResourceType
+		{
+			Texture,
+			AudioClip,
+			Prefab,
+			End,
+		};
+	}
 }

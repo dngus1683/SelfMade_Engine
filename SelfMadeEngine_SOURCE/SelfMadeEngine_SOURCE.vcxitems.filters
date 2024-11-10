@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)smeResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)smeResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -39,11 +37,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeApplication.cpp">
       <Filter>High Level Interface</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)smeLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeLayer.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)smeResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)smeResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -83,10 +90,23 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeApplication.h">
       <Filter>High Level Interface</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)smeLayer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)smeEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeObject.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeLayer.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeTexture.h">
+      <Filter>Resource\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +127,12 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{f6e8a168-65b6-4379-8f6b-3355c0a4bf4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{e51334d0-5912-45f8-a0e3-57567631b7cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{7029a92d-c176-4e88-87e6-186c1ad6e3ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

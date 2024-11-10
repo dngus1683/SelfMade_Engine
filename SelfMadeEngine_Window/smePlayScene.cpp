@@ -8,6 +8,8 @@
 #include "smeTitleScene.h"
 #include "smeSceneManager.h"
 #include "smeObject.h"
+#include "smeTexture.h"
+#include "smeResources.h"
 
 namespace sme
 {
@@ -22,11 +24,12 @@ namespace sme
 
 	void PlayScene::Initialize()
 	{
-		bg = Instantiate<Player>(eLayerType::BackGroud, Vector2(0.f, 0.f));
+		bg = Instantiate<Player>(enums::eLayerType::BackGroud, Vector2(0.f, 0.f));
 
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
-		sr->ImageLoad(L"D:/Study/SelfMadeEngine/ImageSource/CloudOcean.png");
+		sr->SetTexture(Resources::Find<graphics::Texture>(L"BG"));
+
 	}
 
 	void PlayScene::Update()

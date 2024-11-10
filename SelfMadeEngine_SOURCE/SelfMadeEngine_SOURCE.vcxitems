@@ -30,6 +30,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeShape.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeTransform.h" />
   </ItemGroup>
@@ -47,6 +48,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeShape.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeTransform.cpp" />
   </ItemGroup>

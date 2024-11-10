@@ -17,6 +17,8 @@ namespace sme
 		void LateUpdate();
 		void Render();
 
+		HDC GetHdc() { return mHdc; }
+
 	private:
 		HWND mHwnd;
 		HDC mHdc;

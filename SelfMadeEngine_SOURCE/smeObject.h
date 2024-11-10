@@ -11,7 +11,7 @@
 namespace sme
 {
 	template<typename T>
-	static T* Instantiate(sme::eLayerType type)
+	static T* Instantiate(sme::enums::eLayerType type)
 	{
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();
@@ -22,7 +22,7 @@ namespace sme
 	}
 
 	template<typename T>
-	static T* Instantiate(sme::eLayerType type, math::Vector2 position)
+	static T* Instantiate(sme::enums::eLayerType type, math::Vector2 position)
 	{
 		T* gameObject = new T();
 		Scene* activeScene = SceneManager::GetActiveScene();

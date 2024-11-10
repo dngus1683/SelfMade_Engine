@@ -4,13 +4,21 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{5217ab8e-dc89-4533-9d51-0c2f132dfc31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{f274f57e-ffcd-4ca0-9428-c9f5687a7f1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="smePlayer.h" />
     <ClInclude Include="smePlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="smeTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="smePlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="smeLoadResources.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
@@ -18,12 +26,14 @@
     <ClCompile Include="smeLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="smePlayer.cpp" />
     <ClCompile Include="smePlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="smeTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="smePlayer.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
