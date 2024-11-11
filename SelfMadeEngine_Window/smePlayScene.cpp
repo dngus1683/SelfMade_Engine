@@ -3,18 +3,20 @@
 #include "smeTransform.h"
 #include "smeSpriteRenderer.h"
 #include "smePlayer.h"
-#include "smeShape.h"
 #include "smeInput.h"
 #include "smeTitleScene.h"
 #include "smeSceneManager.h"
 #include "smeObject.h"
 #include "smeTexture.h"
 #include "smeResources.h"
+#include "smePlayerScript.h"
+#include "smeCamera.h"
+#include "smeRenderer.h"
 
 namespace sme
 {
 	PlayScene::PlayScene()
-		: bg(nullptr)
+		: mPlayer(nullptr)
 	{
 	}
 
@@ -24,11 +26,24 @@ namespace sme
 
 	void PlayScene::Initialize()
 	{
-		bg = Instantiate<Player>(enums::eLayerType::BackGroud, Vector2(0.f, 0.f));
+		// main camera
+		GameObject* camera = Instantiate<GameObject>(enums::eLayerType::None, Vector2(336.f, 423.f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		// camera->AddComponent<PlayerScript>();
 
-		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+
+		mPlayer = Instantiate<Player>(enums::eLayerType::Player, Vector2(0.f, 0.f));
+		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetSize({0.1f, 0.1f});
 		sr->SetName(L"SR");
-		sr->SetTexture(Resources::Find<graphics::Texture>(L"BG"));
+		sr->SetTexture(Resources::Find<graphics::Texture>(L"Pacman"));
+		mPlayer->AddComponent<PlayerScript>();
+
+		GameObject* bg = Instantiate<GameObject>(enums::eLayerType::BackGroud, Vector2(0.f, 0.f));
+		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
+		bgsr->SetName(L"SR");
+		bgsr->SetTexture(Resources::Find<graphics::Texture>(L"BG"));
 
 	}
 
@@ -60,7 +75,7 @@ namespace sme
 
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->GetComponent<Transform>();
+		Transform* tr = mPlayer->GetComponent<Transform>();
 		tr->SetPos(Vector2(0.f, 0.f));
 	}
 

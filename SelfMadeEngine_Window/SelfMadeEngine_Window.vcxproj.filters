@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{f274f57e-ffcd-4ca0-9428-c9f5687a7f1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{b7e6ffbc-0307-462b-8545-f83aa2705406}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="smePlayScene.h">
@@ -21,6 +24,9 @@
     <ClInclude Include="smeLoadResources.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="smePlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeLoadScenes.h">
@@ -34,6 +40,9 @@
     </ClCompile>
     <ClCompile Include="smePlayer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="smePlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

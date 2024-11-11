@@ -7,12 +7,15 @@ namespace sme
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
 	GameObject::~GameObject()
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			delete comp;
 			comp = nullptr;
 		}
@@ -22,6 +25,8 @@ namespace sme
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Initialize();
 		}
 	}
@@ -29,57 +34,17 @@ namespace sme
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Update();
 		}
-
-		/*
-		const int speed = 100.f;
-		if (mType == 0)
-		{
-			if (Input::GetKey(eKeyCode::UP))
-			{
-				mY -= speed * Time::DeltaTime();
-			}
-			if (Input::GetKey(eKeyCode::DOWN))
-			{
-				mY += speed * Time::DeltaTime();
-			}
-			if (Input::GetKey(eKeyCode::LEFT))
-			{
-				mX -= speed * Time::DeltaTime();
-			}
-			if (Input::GetKey(eKeyCode::RIGHT))
-			{
-				mX += speed * Time::DeltaTime();
-			}
-		}
-		if (mType == 1)
-		{
-			if (Input::GetKey(eKeyCode::W))
-			{
-				mY -= speed * Time::DeltaTime();
-			}
-			if (Input::GetKey(eKeyCode::S))
-			{
-				mY += speed * Time::DeltaTime();
-			}
-			if (Input::GetKey(eKeyCode::A))
-			{
-				mX -= speed * Time::DeltaTime();
-			}
-			if (Input::GetKey(eKeyCode::D))
-			{
-				mX += speed * Time::DeltaTime();
-			}
-		}
-		*/
-		
-
 	}
 	void GameObject::LateUpdate()
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->LateUpdate();
 		}
 	}
@@ -87,6 +52,8 @@ namespace sme
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
 			comp->Render(mHdc);
 		}
 	}

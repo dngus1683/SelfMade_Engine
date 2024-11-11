@@ -130,12 +130,14 @@
   <ItemGroup>
     <ClInclude Include="smeLoadResources.h" />
     <ClInclude Include="smePlayer.h" />
+    <ClInclude Include="smePlayerScript.h" />
     <ClInclude Include="smePlayScene.h" />
     <ClInclude Include="smeTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeLoadScenes.h" />
     <ClCompile Include="smePlayer.cpp" />
+    <ClCompile Include="smePlayerScript.cpp" />
     <ClCompile Include="smePlayScene.cpp" />
     <ClCompile Include="smeTitleScene.cpp" />
   </ItemGroup>

@@ -18,6 +18,8 @@ namespace sme
 		void Render();
 
 		HDC GetHdc() { return mHdc; }
+		UINT GetWidth() { return mWidth; }
+		UINT GetHeight() { return mHeight; }
 
 	private:
 		HWND mHwnd;

@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeEnums.h" />
@@ -24,11 +25,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeSceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)smeShape.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeTime.h" />
@@ -36,17 +38,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)smeApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)smeShape.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeTime.cpp" />

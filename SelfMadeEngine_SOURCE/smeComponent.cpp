@@ -3,7 +3,9 @@
 
 namespace sme
 {
-	Component::Component()
+	Component::Component(enums::eComponentType InType)
+		: mType(InType)
+		, mOwner(nullptr)
 	{
 	}
 	Component::~Component()

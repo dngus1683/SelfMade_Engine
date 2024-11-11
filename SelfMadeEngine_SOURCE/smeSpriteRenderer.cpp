@@ -1,11 +1,12 @@
 #include "smeSpriteRenderer.h"
 #include "smeGameObject.h"
 #include "smeTransform.h"
-#include "smeShape.h"
+#include "smeRenderer.h"
 
 sme::SpriteRenderer::SpriteRenderer()
 	: mTexture(nullptr)
 	, mSize(Vector2::One)
+	, Component(enums::eComponentType::SpriteRenderer)
 {
 }
 
@@ -34,9 +35,11 @@ void sme::SpriteRenderer::Render(HDC hdc)
 
 	Transform* tr = GetOwner()->GetComponent<Transform>();
 	Vector2 pos = tr->GetPosition();
+	pos = renderer::mainCamera->CalculatePosition(pos);
 
 	if (mTexture->GetType() == graphics::Texture::eTextureType::Bmp)
 	{
+
 		TransparentBlt(hdc, pos.x, pos.y
 			, mTexture->GetWidth(), mTexture->GetHeight()
 			, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()

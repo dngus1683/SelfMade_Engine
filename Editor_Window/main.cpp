@@ -137,8 +137,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // Store instance handle in our global variable
 
    // 해상도 크기
-   const UINT width = 1600;
-   const UINT height = 900;
+   const UINT width = 672;
+   const UINT height = 846;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, -10000, width, height, nullptr, nullptr, hInstance, nullptr);
