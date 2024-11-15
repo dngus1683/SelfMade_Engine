@@ -12,6 +12,7 @@
 #include "smePlayerScript.h"
 #include "smeCamera.h"
 #include "smeRenderer.h"
+#include "smeAnimator.h"
 
 namespace sme
 {
@@ -33,12 +34,17 @@ namespace sme
 		// camera->AddComponent<PlayerScript>();
 
 
-		mPlayer = Instantiate<Player>(enums::eLayerType::Player, Vector2(0.f, 0.f));
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize({0.1f, 0.1f});
-		sr->SetName(L"SR");
-		sr->SetTexture(Resources::Find<graphics::Texture>(L"Pacman"));
-		mPlayer->AddComponent<PlayerScript>();
+		mPlayer = Instantiate<Player>(enums::eLayerType::Player);
+		mPlayer->AddComponent<PlayerScript>(); 
+
+
+		graphics::Texture* chickhenTexture = Resources::Find<graphics::Texture>(L"Chickhen");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"ChickhenMove", chickhenTexture
+			, Vector2(0.f, 0.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+
+		animator->PlayAnimation(L"ChickhenMove", true);
+
 
 		GameObject* bg = Instantiate<GameObject>(enums::eLayerType::BackGroud, Vector2(0.f, 0.f));
 		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();

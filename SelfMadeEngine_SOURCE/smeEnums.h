@@ -8,6 +8,7 @@ namespace sme
 		{
 			Transform,
 			SpriteRenderer,
+			Animator,
 			Script,
 			Camera,
 			End,
@@ -25,6 +26,7 @@ namespace sme
 		{
 			Texture,
 			AudioClip,
+			Animation,
 			Prefab,
 			End,
 		};

@@ -2,6 +2,8 @@
 
 #include "CommonInclude.h"
 
+using namespace sme::math;
+
 namespace sme
 {
 	class Entity

@@ -13,6 +13,6 @@ namespace sme
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 
 
-		SceneManager::LoadScene(L"TitleScene");
+		SceneManager::LoadScene(L"PlayScene");
 	}
 }

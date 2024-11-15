@@ -55,6 +55,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeAnimator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h">
@@ -120,6 +122,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeAnimator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">

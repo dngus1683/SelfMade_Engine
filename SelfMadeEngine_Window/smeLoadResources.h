@@ -9,5 +9,6 @@ namespace sme
 	{
 		Resources::Load<graphics::Texture>(L"BG", L"D:/Study/SelfMadeEngine/ImageSource/CloudOcean.png");
 		Resources::Load<graphics::Texture>(L"Pacman", L"D:/Study/SelfMadeEngine/ImageSource/pacman.png");
+		Resources::Load<graphics::Texture>(L"Chickhen", L"D:/Study/SelfMadeEngine/ImageSource/ChickenAlpha.bmp");
 	}
 }
