@@ -30,11 +30,11 @@ namespace sme
 		if (mActiveScene)
 			mActiveScene->OnExit();
 
-		std::map<std::wstring, Scene*>::iterator iter = mScene.find(name);
+		std::map<std::wstring, Scene*>::iterator iter
+			= mScene.find(name);
+
 		if (iter == mScene.end())
-		{
 			return nullptr;
-		}
 
 		mActiveScene = iter->second;
 		mActiveScene->OnEnter();

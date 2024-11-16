@@ -30,7 +30,7 @@ namespace sme
 		layer->AddGameObject(gameObject);
 
 		Transform* tr = gameObject->GetComponent<Transform>();
-		tr->SetPos(position);
+		tr->SetPosition(position);
 
 		return gameObject;
 	}

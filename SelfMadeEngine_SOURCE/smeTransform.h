@@ -16,10 +16,17 @@ namespace sme
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetPos(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
-		Vector2 GetPosition() { return mPosition; }
+		void SetPosition(Vector2 pos) { mPosition.x = pos.x; mPosition.y = pos.y; }
+		void SetRotation(float rot) { mRotation = rot; }
+		void SetScale(Vector2 scale) { mScale.x = scale.x; mScale.y = scale.y; }
+
+		Vector2 GetPosition() const { return mPosition; }
+		float GetRotation() const { return mRotation; }
+		Vector2 GetScale() const { return mScale; }
 
 	private:
+		float mRotation;
+		Vector2 mScale;
 		Vector2 mPosition;
 	};
 }

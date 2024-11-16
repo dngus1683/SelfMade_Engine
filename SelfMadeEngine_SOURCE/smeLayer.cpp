@@ -51,6 +51,9 @@ namespace sme
 	}
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
+		if (gameObject == nullptr)
+			return;
+
 		mGameObjects.push_back(gameObject);
 	}
 }

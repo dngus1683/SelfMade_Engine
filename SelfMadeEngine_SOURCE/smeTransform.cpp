@@ -4,8 +4,10 @@
 namespace sme
 {
 	Transform::Transform()
-		: mPosition(0.f, 0.f)
-		, Component(enums::eComponentType::Transform)
+		: Component(enums::eComponentType::Transform)
+		, mRotation(0.f)
+		, mScale(Vector2::One)
+		, mPosition(Vector2::Zero)
 	{
 	}
 	Transform::~Transform()

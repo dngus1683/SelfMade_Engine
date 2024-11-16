@@ -23,6 +23,8 @@ namespace sme
 		static Scene* LoadScene(const std::wstring& name);
 		static Scene* GetActiveScene() { return mActiveScene; }
 
+		static std::map<std::wstring, Scene*> GetmScene() { return mScene; }
+
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();

@@ -38,7 +38,8 @@ namespace sme
 			mActiveAnimation->Render(hdc);
 		}
 	}
-	void Animator::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 offset, Vector2 size, UINT spriteLength, float duration)
+	void Animator::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet
+		, Vector2 leftTop, Vector2 offset, Vector2 size, UINT spriteLength, float duration)
 	{
 		Animation* animation = nullptr;
 
@@ -47,7 +48,8 @@ namespace sme
 			return;
 
 		animation = new Animation();
-		animation->CreateAnimation(name, spriteSheet, leftTop, offset, size, spriteLength, duration);
+		animation->CreateAnimation(name, spriteSheet, leftTop, offset, size, spriteLength
+			, duration);
 		animation->SetAnimator(this);
 
 		mAnimations.insert({ name, animation });

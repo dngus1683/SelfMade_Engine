@@ -56,7 +56,6 @@ namespace sme
 		Input::Update();
 		SceneManager::Update();
 		Time::Update();
-
 	}
 	void Application::LateUpdate()
 	{
