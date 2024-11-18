@@ -34,6 +34,13 @@ namespace sme
 		{
 			if (gameObject == nullptr)
 				continue;
+
+			GameObject::eState state = gameObject->GetState();
+			if (state == GameObject::eState::Paused || state == GameObject::eState::Dead)
+			{
+				continue;
+			}
+
 			gameObject->Update();
 		}
 	}
@@ -54,6 +61,33 @@ namespace sme
 				continue;
 			gameObject->Render(mHdc);
 		}
+	}
+	void Layer::Destroy()
+	{
+		for (GameObject* gameObject : mGameObjects)
+		{
+			if (gameObject == nullptr)
+				continue;
+		}
+		for (std::vector<GameObject*>::iterator iter = mGameObjects.begin(); iter != mGameObjects.end(); )
+		{
+			GameObject::eState active = (*iter)->GetState();
+			if (active == GameObject::eState::Dead)
+			{
+				GameObject* deathObj = (*iter);
+				mGameObjects.erase(iter);
+
+				delete deathObj;
+				deathObj = nullptr;
+
+				if (mGameObjects.empty())
+					break;
+				else
+					continue;
+			}
+			iter++;
+		}
+
 	}
 	void Layer::AddGameObject(GameObject* gameObject)
 	{

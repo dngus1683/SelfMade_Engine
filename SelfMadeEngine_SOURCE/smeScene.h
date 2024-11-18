@@ -17,6 +17,7 @@ namespace sme
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC mHdc);
+		virtual void Destroy();
 
 		// Scene에 들어갈 때 설정.
 		virtual void OnEnter();

@@ -4,6 +4,7 @@
 #include "smeTransform.h"
 #include "smeGameObject.h"
 #include "smeAnimator.h"
+#include "smeObject.h"
 
 namespace sme
 {
@@ -11,6 +12,7 @@ namespace sme
 		: mState(CatScript::eState::SitDown)
 		, mAnimator(nullptr)
 		, mTime(0.f)
+		, mDeathTime(0.f)
 	{
 	}
 	CatScript::~CatScript()
@@ -21,6 +23,13 @@ namespace sme
 	}
 	void CatScript::Update()
 	{
+		mDeathTime += Time::DeltaTime();
+
+		if (mDeathTime > 6.f)
+		{
+			Destroy(GetOwner());	
+		}
+
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();

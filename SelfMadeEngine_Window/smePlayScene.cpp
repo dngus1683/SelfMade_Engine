@@ -87,6 +87,17 @@ namespace sme
 
 
 
+		// 주황버섯
+		GameObject* mushroom = Instantiate<GameObject>(enums::eLayerType::Particle);
+		Animator* mushroomAnimator = mushroom->AddComponent<Animator>();
+		mushroomAnimator->CreateAnimationByFolder(L"MushroomIdle"
+			, L"D:/Study/SelfMadeEngine/ImageSource/"
+			, Vector2::Zero
+			, 0.1f);
+
+		mushroomAnimator->PlayAnimation(L"MushroomIdle");
+
+		
 
 
 		// 배경

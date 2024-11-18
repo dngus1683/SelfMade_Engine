@@ -56,6 +56,15 @@ namespace sme
 			layer->Render(mHdc);
 		}
 	}
+	void Scene::Destroy()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+			layer->Destroy();
+		}
+	}
 	void Scene::OnEnter()
 	{
 

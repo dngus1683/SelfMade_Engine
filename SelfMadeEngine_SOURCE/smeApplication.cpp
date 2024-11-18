@@ -51,6 +51,7 @@ namespace sme
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 	void Application::Update()
 	{
@@ -73,6 +74,10 @@ namespace sme
 
 		// 백버퍼에 그려진 화면을 원본 버퍼에 복사
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+	}
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 	void Application::Release()
 	{

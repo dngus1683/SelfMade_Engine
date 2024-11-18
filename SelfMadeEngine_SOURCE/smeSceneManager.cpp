@@ -41,6 +41,10 @@ namespace sme
 
 		return iter->second;
 	}
+	void SceneManager::Destroy()
+	{
+		mActiveScene->Destroy();
+	}
 	void SceneManager::Release()
 	{
 		for (auto& iter : mScene)
