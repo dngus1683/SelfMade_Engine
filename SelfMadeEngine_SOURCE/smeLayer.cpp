@@ -11,7 +11,13 @@ namespace sme
 	}
 	Layer::~Layer()
 	{
-
+		for (auto iter : mGameObjects)
+		{
+			if (iter == nullptr)
+				continue;
+			delete iter;
+			iter = nullptr;
+		}
 	}
 	void Layer::Initialize()
 	{

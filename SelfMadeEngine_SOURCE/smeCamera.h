@@ -18,7 +18,7 @@ namespace sme
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-
+		void SetTarget(GameObject* InTarget) { mTarget = InTarget; }
 
 	private:
 		Vector2 mDistance;

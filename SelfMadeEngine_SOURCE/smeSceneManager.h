@@ -29,6 +29,7 @@ namespace sme
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC mHdc);
+		static void Release();
 
 	private:
 		static std::map<std::wstring, Scene*> mScene;

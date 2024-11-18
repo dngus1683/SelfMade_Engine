@@ -4,6 +4,8 @@
 
 namespace sme
 {
+	using namespace math;
+
 	enum class eKeyState
 	{
 		Down,
@@ -17,6 +19,7 @@ namespace sme
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		LEFT, RIGHT, UP, DOWN,
+		LButton, MBUtton, RButton,
 		End,
 	};
 
@@ -35,9 +38,14 @@ namespace sme
 		static bool GetKeyDown(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Pressed; }
+		static Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
+		static void clearKeys();
+		static void getMousePositionByWindow();
+	private:
 		static std::vector<Key> mKeys;
+		static Vector2 mMousePosition;
 
 	};
 }

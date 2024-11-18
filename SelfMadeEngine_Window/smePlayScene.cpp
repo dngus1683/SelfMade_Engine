@@ -13,6 +13,8 @@
 #include "smeCamera.h"
 #include "smeRenderer.h"
 #include "smeAnimator.h"
+#include "smeCat.h"
+#include "smeCatScript.h"
 
 namespace sme
 {
@@ -31,47 +33,67 @@ namespace sme
 		GameObject* camera = Instantiate<GameObject>(enums::eLayerType::None, Vector2(336.f, 423.f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
-		// camera->AddComponent<PlayerScript>();
 
 
+
+		// 플레이어
 		mPlayer = Instantiate<Player>(enums::eLayerType::Player);
-		mPlayer->AddComponent<PlayerScript>(); 
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>(); 
 
+		cameraComp->SetTarget(mPlayer);
 
-		//graphics::Texture* chickhenTexture = Resources::Find<graphics::Texture>(L"SkillEffect");
-		//Animator* animator = mPlayer->AddComponent<Animator>();
-		//animator->CreateAnimation(L"ChickhenMove", chickhenTexture
-		//	, Vector2(0.f, 0.f), Vector2::Zero, Vector2(602.f, 368.f), 8, 0.1f);
+		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
+		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
+		playerAnimator->CreateAnimation(L"Idle", playerTexture
+			, Vector2(2000.f, 250.f), Vector2::Zero, Vector2(250.f, 250.f), 1, 0.1f);
+		playerAnimator->CreateAnimation(L"FrontGiveWater", playerTexture
+			, Vector2(0.f, 2000.f), Vector2::Zero, Vector2(250.f, 250.f), 12, 0.1f);
+	
+		playerAnimator->PlayAnimation(L"Idle", false);
 
-		//animator->PlayAnimation(L"ChickhenMove", true);
-
-		graphics::Texture* chickhenTexture = Resources::Find<graphics::Texture>(L"Chickhen");
-		Animator* animator = mPlayer->AddComponent<Animator>();
-		animator->CreateAnimation(L"DownWalk", chickhenTexture
-			, Vector2(0.f, 0.f), Vector2::Zero, Vector2(32.f, 32.f),4, 0.1f);
-		animator->CreateAnimation(L"RightWalk", chickhenTexture
-			, Vector2(0.f, 32.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		animator->CreateAnimation(L"UpWalk", chickhenTexture
-			, Vector2(0.f, 64.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		animator->CreateAnimation(L"LeftWalk", chickhenTexture
-			, Vector2(0.f, 96.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		animator->CreateAnimation(L"SitDown", chickhenTexture
-			, Vector2(0.f, 128.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		animator->CreateAnimation(L"Grooming", chickhenTexture
-			, Vector2(0.f, 160.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-
-
-		animator->PlayAnimation(L"SitDown", false);
-
+		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 100.f));
-		mPlayer->GetComponent<Transform>()->SetRotation(180.f);
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.f, 1.f));
 
-		GameObject* bg = Instantiate<GameObject>(enums::eLayerType::BackGroud, Vector2(0.f, 0.f));
+
+
+
+		// 고양이
+		Cat* cat = Instantiate<Cat>(enums::eLayerType::Animal);
+		cat->AddComponent<CatScript>();
+
+		graphics::Texture* catTexture = Resources::Find<graphics::Texture>(L"Chickhen");
+		Animator* catAnimator = cat->AddComponent<Animator>();
+		catAnimator->CreateAnimation(L"DownWalk", catTexture
+			, Vector2(0.f, 0.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+		catAnimator->CreateAnimation(L"RightWalk", catTexture
+			, Vector2(0.f, 32.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+		catAnimator->CreateAnimation(L"UpWalk", catTexture
+			, Vector2(0.f, 64.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+		catAnimator->CreateAnimation(L"LeftWalk", catTexture
+			, Vector2(0.f, 96.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+		catAnimator->CreateAnimation(L"SitDown", catTexture
+			, Vector2(0.f, 128.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+		catAnimator->CreateAnimation(L"Grooming", catTexture
+			, Vector2(0.f, 160.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+		catAnimator->CreateAnimation(L"LayDown", catTexture
+			, Vector2(0.f, 192.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+
+		catAnimator->PlayAnimation(L"SitDown", false);
+
+		cat->GetComponent<Transform>()->SetPosition(Vector2(250.f, 100.f));
+		cat->GetComponent<Transform>()->SetRotation(180.f);
+		cat->GetComponent<Transform>()->SetScale(Vector2(1.f, 1.f));
+
+
+
+
+
+		// 배경
+		/*GameObject* bg = Instantiate<GameObject>(enums::eLayerType::BackGroud, Vector2(0.f, 0.f));
 		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
 		bgsr->SetName(L"SR");
-		bgsr->SetTexture(Resources::Find<graphics::Texture>(L"BG"));
+		bgsr->SetTexture(Resources::Find<graphics::Texture>(L"BG"));*/
 
 	}
 

@@ -41,5 +41,13 @@ namespace sme
 
 		return iter->second;
 	}
+	void SceneManager::Release()
+	{
+		for (auto& iter : mScene)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
+	}
 }
 

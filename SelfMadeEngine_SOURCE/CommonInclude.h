@@ -7,7 +7,7 @@
 #include <string>
 #include <map>
 #include <algorithm>
-
+#include <functional>
 
 #include "smeMath.h"
 

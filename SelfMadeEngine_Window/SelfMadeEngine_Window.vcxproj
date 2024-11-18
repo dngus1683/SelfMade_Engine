@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="smeCatScript.h" />
+    <ClInclude Include="smeCat.h" />
     <ClInclude Include="smeLoadResources.h" />
     <ClInclude Include="smePlayer.h" />
     <ClInclude Include="smePlayerScript.h" />
@@ -139,6 +141,8 @@
     <ClInclude Include="smeTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="smeCatScript.cpp" />
+    <ClCompile Include="smeCat.cpp" />
     <ClCompile Include="smeLoadScenes.h" />
     <ClCompile Include="smePlayer.cpp" />
     <ClCompile Include="smePlayerScript.cpp" />

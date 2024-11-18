@@ -35,6 +35,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
+    // leak이 발생하는 지점에 대한 메모리 누수 보고서. 앱의 시작부분에 배치.
+    //_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    // 메모리 릭이 발생하는 지점에 break point.
+    //_CrtSetBreakAlloc(624);
+
     // TODO: Place code here.
 
     // Initialize global strings
@@ -77,18 +82,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // 프로그램이 종료될 때, 할당한 gdi도 같이 메모리에서 제거.
     Gdiplus::GdiplusShutdown(gpToken);
-
-    /*
-    // Main message loop:
-    while (GetMessage(&msg, nullptr, 0, 0))
-    {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-    }
-    */
+    application.Release();
 
     return (int) msg.wParam;
 }
@@ -160,6 +154,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    sme::LoadResources();
    sme::LoadScenes();
 
+   int a = 0;
+   srand((unsigned int)&a);
 
    return TRUE;
 }

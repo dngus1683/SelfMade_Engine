@@ -27,6 +27,12 @@
     <ClInclude Include="smePlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="smeCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="smeCatScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeLoadScenes.h">
@@ -42,6 +48,12 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="smePlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="smeCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="smeCatScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

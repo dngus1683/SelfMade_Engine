@@ -18,7 +18,9 @@ namespace sme
 		{
 			None,
 			BackGroud,
+			Animal,
 			Player,
+			Particle,
 			Max = 16,
 		};
 

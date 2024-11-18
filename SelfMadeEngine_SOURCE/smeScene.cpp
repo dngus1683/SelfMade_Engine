@@ -14,6 +14,11 @@ namespace sme
 	}
 	Scene::~Scene()
 	{
+		for (auto& iter : mLayers)
+		{
+			delete iter;
+			iter = nullptr;
+		}
 	}
 	void Scene::Initialize()
 	{

@@ -55,9 +55,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)smeAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)smeAnimator.cpp">
       <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeAnimation.cpp">
+      <Filter>Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +126,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)smeAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)smeAnimator.h">
       <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeAnimation.h">
+      <Filter>Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +175,9 @@
     </Filter>
     <Filter Include="Component\Animator">
       <UniqueIdentifier>{d7f92f0f-768c-4c70-9827-c833212dcd3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{d4662cd5-bd81-44bf-9280-6dfae1a59481}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "smeInput.h"
 #include "smeTime.h"
 #include "smeSceneManager.h"
+#include "smeResources.h"
 
 namespace sme
 {
@@ -72,5 +73,10 @@ namespace sme
 
 		// 백버퍼에 그려진 화면을 원본 버퍼에 복사
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+	}
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 }
