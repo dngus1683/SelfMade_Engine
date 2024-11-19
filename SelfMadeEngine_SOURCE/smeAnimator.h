@@ -18,7 +18,7 @@ namespace sme
 			void operator() ()
 			{
 				if (mEvent)
-					mEvent;
+					mEvent();
 			}
 			std::function<void()> mEvent;
 		};

@@ -13,6 +13,8 @@ namespace sme
 		, mAnimator(nullptr)
 		, mTime(0.f)
 		, mDeathTime(0.f)
+		, mDest(Vector2::Zero)
+		, mRad(0.f)
 	{
 	}
 	CatScript::~CatScript()
@@ -73,15 +75,33 @@ namespace sme
 	{		
 		mTime += Time::DeltaTime();
 
-		if (mTime > 3.f)
+		if (mTime > 2.f)
 		{
-			mState = CatScript::eState::Walk;
-			int direction = rand() % 4;
-			mDirection = (eDirection)direction;
-
-			playWalkAnimationByDirection(mDirection);
-			mTime = 0.f;
+			//Destroy(GetOwner());
 		}
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		
+		// 마우스 위치로의 이동 (벡터의 뺄셈 활용).
+		/*Transform* plTr = mPlayer->GetComponent<Transform>();
+		Vector2 dest = mDest - plTr->GetPosition();
+		pos += dest.normalize() * (100.f * Time::DeltaTime());*/
+
+		// 삼각함수를 통한 이동.
+		//mRad += 5.f * Time::DeltaTime();
+		//pos += Vector2(1.f, 5.f*cosf(mRad)) * (100*Time::DeltaTime());
+
+		// 마우스 위치 방향으로 회전 후 마우스 위치 이동.
+		Transform* plTr = mPlayer->GetComponent<Transform>();
+		Vector2 dest = mDest - plTr->GetPosition(); 
+		dest.normalize();
+
+		float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos세타
+		rotDegree = ConvertDegree(acosf(rotDegree));
+		pos += dest.normalize() * (100.f * Time::DeltaTime());
+		
+		tr->SetPosition(pos);
 	}
 	void CatScript::move()
 	{

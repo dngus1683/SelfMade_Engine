@@ -35,10 +35,10 @@ namespace sme
 		static void Initialize();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Pressed; }
-		static Vector2 GetMousePosition() { return mMousePosition; }
+		__forceinline static bool GetKeyDown(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Down; }
+		__forceinline static bool GetKeyUp(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Up; }
+		__forceinline static bool GetKey(eKeyCode InCode) { return mKeys[(UINT)InCode].state == eKeyState::Pressed; }
+		__forceinline static Vector2 GetMousePosition() { return mMousePosition; }
 
 	private:
 		static void clearKeys();

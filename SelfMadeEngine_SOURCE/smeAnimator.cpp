@@ -102,6 +102,7 @@ namespace sme
 		UINT sheetWidth = images[0]->GetWidth() * fileCount;
 		UINT sheetHeight = images[0]->GetHeight();
 		graphics::Texture* spriteSheet = graphics::Texture::Create(name, sheetWidth, sheetHeight);
+		spriteSheet->SetType(images[0]->GetType());
 
 		UINT imageWidth = images[0]->GetWidth();
 		UINT imageHeight = images[0]->GetHeight();
@@ -113,9 +114,9 @@ namespace sme
 				, images[i]->GetHdc(), 0, 0, SRCCOPY);
 		}
 		CreateAnimation(name, spriteSheet
-			, Vector2::One
-			, Vector2(imageWidth, imageHeight)
+			, Vector2::Zero
 			, offset
+			, Vector2(imageWidth, imageHeight)
 			, fileCount
 			, duration);
 

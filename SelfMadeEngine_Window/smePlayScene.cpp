@@ -40,7 +40,7 @@ namespace sme
 		mPlayer = Instantiate<Player>(enums::eLayerType::Player);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>(); 
 
-		cameraComp->SetTarget(mPlayer);
+		//cameraComp->SetTarget(mPlayer);
 
 		graphics::Texture* playerTexture = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -57,45 +57,18 @@ namespace sme
 
 
 
-
-		// 고양이
-		Cat* cat = Instantiate<Cat>(enums::eLayerType::Animal);
-		cat->AddComponent<CatScript>();
-
-		graphics::Texture* catTexture = Resources::Find<graphics::Texture>(L"Chickhen");
-		Animator* catAnimator = cat->AddComponent<Animator>();
-		catAnimator->CreateAnimation(L"DownWalk", catTexture
-			, Vector2(0.f, 0.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		catAnimator->CreateAnimation(L"RightWalk", catTexture
-			, Vector2(0.f, 32.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		catAnimator->CreateAnimation(L"UpWalk", catTexture
-			, Vector2(0.f, 64.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		catAnimator->CreateAnimation(L"LeftWalk", catTexture
-			, Vector2(0.f, 96.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		catAnimator->CreateAnimation(L"SitDown", catTexture
-			, Vector2(0.f, 128.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		catAnimator->CreateAnimation(L"Grooming", catTexture
-			, Vector2(0.f, 160.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-		catAnimator->CreateAnimation(L"LayDown", catTexture
-			, Vector2(0.f, 192.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
-
-		catAnimator->PlayAnimation(L"SitDown", false);
-
-		cat->GetComponent<Transform>()->SetPosition(Vector2(250.f, 100.f));
-		cat->GetComponent<Transform>()->SetRotation(180.f);
-		cat->GetComponent<Transform>()->SetScale(Vector2(1.f, 1.f));
-
-
-
 		// 주황버섯
-		GameObject* mushroom = Instantiate<GameObject>(enums::eLayerType::Particle);
+	/*	GameObject* mushroom = Instantiate<Cat>(enums::eLayerType::Animal);
+		Script* mushroomScript = mushroom->AddComponent<CatScript>();
 		Animator* mushroomAnimator = mushroom->AddComponent<Animator>();
+		mushroomAnimator->SetName(L"mushroom");
 		mushroomAnimator->CreateAnimationByFolder(L"MushroomIdle"
-			, L"D:/Study/SelfMadeEngine/ImageSource/"
+			, L"D:\\Study\\SelfMadeEngine\\ImageSource\\Mushroom"
 			, Vector2::Zero
 			, 0.1f);
 
 		mushroomAnimator->PlayAnimation(L"MushroomIdle");
+		mushroom->GetComponent<Transform>()->SetPosition(Vector2(250.f, 200.f));*/
 
 		
 

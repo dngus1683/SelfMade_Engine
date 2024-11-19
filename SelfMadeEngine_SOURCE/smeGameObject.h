@@ -51,7 +51,7 @@ namespace sme
 			return component;
 		}
 
-		eState GetState() { return mState; }
+		eState GetActive() { return mState; }
 		void SetActive(bool power)
 		{
 			if (power == true)

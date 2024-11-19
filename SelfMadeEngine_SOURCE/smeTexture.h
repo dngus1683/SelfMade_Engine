@@ -27,8 +27,10 @@ namespace sme
 			void SetWidth(UINT width) { mWidth = width; }
 			UINT GetHeight() { return mHeight; }
 			void SetHeight(UINT height) { mHeight = height; }
+			bool IsAlpha() { return mbAlpha; }
 			HDC GetHdc() { return mHdc; }
 			eTextureType GetType() {return mType;}
+			void SetType(Texture::eTextureType InType) { mType = InType; }
 			Gdiplus::Image* GetImage() { return mImage; }
 
 		private:

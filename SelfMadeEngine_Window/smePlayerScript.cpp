@@ -4,6 +4,10 @@
 #include "smeTransform.h"
 #include "smeGameObject.h"
 #include "smeAnimator.h"
+#include "smeCat.h"
+#include "smeCatScript.h"
+#include "smeObject.h"
+#include "smeResources.h"
 
 namespace sme
 {
@@ -65,16 +69,42 @@ namespace sme
 	}
 	void PlayerScript::AttackEffect()
 	{
-		int a = 0;
+		
 	}
 	void PlayerScript::idle()
 	{
 		if (Input::GetKey(eKeyCode::LButton))
 		{
-			mState = PlayerScript::eState::GiveWater;
-			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+
+			Cat* cat = Instantiate<Cat>(enums::eLayerType::Animal);
+			CatScript* catSrc = cat->AddComponent<CatScript>();
+
+			catSrc->SetPlayer(GetOwner());
+
+			graphics::Texture* catTexture = Resources::Find<graphics::Texture>(L"Chickhen");
+			Animator* catAnimator = cat->AddComponent<Animator>();
+			catAnimator->CreateAnimation(L"DownWalk", catTexture
+				, Vector2(0.f, 0.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+			catAnimator->CreateAnimation(L"RightWalk", catTexture
+				, Vector2(0.f, 32.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+			catAnimator->CreateAnimation(L"UpWalk", catTexture
+				, Vector2(0.f, 64.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+			catAnimator->CreateAnimation(L"LeftWalk", catTexture
+				, Vector2(0.f, 96.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+			catAnimator->CreateAnimation(L"SitDown", catTexture
+				, Vector2(0.f, 128.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+			catAnimator->CreateAnimation(L"Grooming", catTexture
+				, Vector2(0.f, 160.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+			catAnimator->CreateAnimation(L"LayDown", catTexture
+				, Vector2(0.f, 192.f), Vector2::Zero, Vector2(32.f, 32.f), 4, 0.1f);
+
+			catAnimator->PlayAnimation(L"SitDown", false);
+
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+			cat->GetComponent<Transform>()->SetPosition(tr->GetPosition());
 
 			Vector2 mousePos = Input::GetMousePosition();
+			catSrc->mDest = mousePos;
 		}
 
 		if (Input::GetKey(eKeyCode::RIGHT))
