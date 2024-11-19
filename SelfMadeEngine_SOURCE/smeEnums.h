@@ -7,11 +7,19 @@ namespace sme
 		enum class eComponentType
 		{
 			Transform,
+			Collider,
+			Script,
 			SpriteRenderer,
 			Animator,
-			Script,
 			Camera,
 			End,
+		};
+
+		enum class eColliderType
+		{
+			 Rect2D,
+			 Circle2D,
+			 End,
 		};
 
 		enum class eLayerType

@@ -3,6 +3,7 @@
 #include "smeTime.h"
 #include "smeSceneManager.h"
 #include "smeResources.h"
+#include "smeCollisionManager.h"
 
 namespace sme
 {
@@ -43,6 +44,7 @@ namespace sme
 		DeleteObject(oldBitmap);
 
 		Input::Initialize();
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 		Time::Initialize();
 	}
@@ -56,20 +58,28 @@ namespace sme
 	void Application::Update()
 	{
 		Input::Update();
+		CollisionManager::Update();
 		SceneManager::Update();
 		Time::Update();
 	}
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 	void Application::Render()
 	{
 		// 화면 초기화
+		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
+
 		Rectangle(mBackHdc, -1, -1, mWidth+1, mHeight+1);
 
-		// Time::Render(mBackHdc);
+		SelectObject(mBackHdc, oldBrush);
+		DeleteObject(grayBrush);
 
+		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		// 백버퍼에 그려진 화면을 원본 버퍼에 복사

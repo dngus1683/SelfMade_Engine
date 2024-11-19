@@ -64,7 +64,7 @@ namespace sme
 				mState = eState::Paused;
 			}
 		}
-
+		bool IsActive() { return mState == eState::Active; }
 		void Death() { mState = eState::Dead; }
 	private:
 		void initializeTransform();

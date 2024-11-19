@@ -8,6 +8,7 @@
 #include "smeCatScript.h"
 #include "smeObject.h"
 #include "smeResources.h"
+#include "smeCollider.h"
 
 namespace sme
 {
@@ -67,13 +68,25 @@ namespace sme
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+		int a  = 0;
+	}
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+		int a = 0;
+	}
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+		int a = 0;
+	}
 	void PlayerScript::AttackEffect()
 	{
 		
 	}
 	void PlayerScript::idle()
 	{
-		if (Input::GetKey(eKeyCode::LButton))
+		/*if (Input::GetKey(eKeyCode::LButton))
 		{
 
 			Cat* cat = Instantiate<Cat>(enums::eLayerType::Animal);
@@ -105,7 +118,7 @@ namespace sme
 
 			Vector2 mousePos = Input::GetMousePosition();
 			catSrc->mDest = mousePos;
-		}
+		}*/
 
 		if (Input::GetKey(eKeyCode::RIGHT))
 		{

@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <functional>
 #include <filesystem>
+#include <bitset>
 
 #include "smeMath.h"
 

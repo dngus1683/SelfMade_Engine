@@ -15,6 +15,9 @@
 #include "smeAnimator.h"
 #include "smeCat.h"
 #include "smeCatScript.h"
+#include "smeBoxCollider2D.h"
+#include "smeCollisionManager.h"
+#include "smeCircleCollider2D.h"
 
 namespace sme
 {
@@ -29,6 +32,8 @@ namespace sme
 
 	void PlayScene::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+	
 		// main camera
 		GameObject* camera = Instantiate<GameObject>(enums::eLayerType::None, Vector2(336.f, 423.f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -39,6 +44,9 @@ namespace sme
 		// 플레이어
 		mPlayer = Instantiate<Player>(enums::eLayerType::Player);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>(); 
+
+		CircleCollider2D* plCircleCol = mPlayer->AddComponent<CircleCollider2D>();
+		plCircleCol->SetOffset(Vector2(-50.f, -50.f));
 
 		//cameraComp->SetTarget(mPlayer);
 
@@ -53,13 +61,15 @@ namespace sme
 
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 100.f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(350.f, 300.f));
 
 
 
 		// 주황버섯
-	/*	GameObject* mushroom = Instantiate<Cat>(enums::eLayerType::Animal);
-		Script* mushroomScript = mushroom->AddComponent<CatScript>();
+		GameObject* mushroom = Instantiate<Cat>(enums::eLayerType::Animal);
+		CatScript* mushroomScript = mushroom->AddComponent<CatScript>();
+		CircleCollider2D* mushroomCircleCol = mushroom->AddComponent<CircleCollider2D>();
+		mushroomCircleCol->SetOffset(Vector2(-50.f, -50.f));
 		Animator* mushroomAnimator = mushroom->AddComponent<Animator>();
 		mushroomAnimator->SetName(L"mushroom");
 		mushroomAnimator->CreateAnimationByFolder(L"MushroomIdle"
@@ -68,7 +78,7 @@ namespace sme
 			, 0.1f);
 
 		mushroomAnimator->PlayAnimation(L"MushroomIdle");
-		mushroom->GetComponent<Transform>()->SetPosition(Vector2(250.f, 200.f));*/
+		mushroom->GetComponent<Transform>()->SetPosition(Vector2(100.f, 200.f));
 
 		
 

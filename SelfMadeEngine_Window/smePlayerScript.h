@@ -24,6 +24,10 @@ namespace sme
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		virtual void OnCollisionEnter(class Collider* other) override;
+		virtual void OnCollisionStay(class Collider* other) override;
+		virtual void OnCollisionExit(class Collider* other) override;
+
 		void AttackEffect();
 
 	private:

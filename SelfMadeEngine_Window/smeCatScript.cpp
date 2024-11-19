@@ -93,15 +93,15 @@ namespace sme
 		//pos += Vector2(1.f, 5.f*cosf(mRad)) * (100*Time::DeltaTime());
 
 		// 마우스 위치 방향으로 회전 후 마우스 위치 이동.
-		Transform* plTr = mPlayer->GetComponent<Transform>();
-		Vector2 dest = mDest - plTr->GetPosition(); 
-		dest.normalize();
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition(); 
+		//dest.normalize();
 
-		float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos세타
-		rotDegree = ConvertDegree(acosf(rotDegree));
-		pos += dest.normalize() * (100.f * Time::DeltaTime());
-		
-		tr->SetPosition(pos);
+		//float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos세타
+		//rotDegree = ConvertDegree(acosf(rotDegree));
+		//pos += dest.normalize() * (100.f * Time::DeltaTime());
+		//
+		//tr->SetPosition(pos);
 	}
 	void CatScript::move()
 	{
