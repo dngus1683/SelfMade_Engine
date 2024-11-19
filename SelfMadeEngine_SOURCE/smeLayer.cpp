@@ -103,4 +103,12 @@ namespace sme
 
 		mGameObjects.push_back(gameObject);
 	}
+	void Layer::EraseGameObject(GameObject* eraseGameObject)
+	{
+		std::erase_if(mGameObjects,
+			[=](GameObject* gameObj)
+			{
+				return gameObj == eraseGameObject;
+			});
+	}
 }

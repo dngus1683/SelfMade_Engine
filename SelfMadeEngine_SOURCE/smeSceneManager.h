@@ -22,7 +22,7 @@ namespace sme
 
 		static Scene* LoadScene(const std::wstring& name);
 		static Scene* GetActiveScene() { return mActiveScene; }
-
+		static Scene* GetDontDestroyOnLoad() { return mDontDestroyOnLoad; }
 		static std::map<std::wstring, Scene*> GetmScene() { return mScene; }
 
 		static void Initialize();
@@ -36,6 +36,7 @@ namespace sme
 		static std::map<std::wstring, Scene*> mScene;
 		// 현재 실행되고 있는 씬
 		static Scene* mActiveScene;
+		static Scene* mDontDestroyOnLoad;
 	};
 }
 

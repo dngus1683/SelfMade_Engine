@@ -66,11 +66,14 @@ namespace sme
 		}
 		bool IsActive() { return mState == eState::Active; }
 		void Death() { mState = eState::Dead; }
+		void SetLayerType(enums::eLayerType layerType) { mLayerType = layerType; }
+		enums::eLayerType GetLayerType() { return mLayerType; }
 	private:
 		void initializeTransform();
 		
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
+		enums::eLayerType mLayerType;
 	};
 }

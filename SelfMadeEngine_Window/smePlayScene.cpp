@@ -43,6 +43,8 @@ namespace sme
 
 		// 플레이어
 		mPlayer = Instantiate<Player>(enums::eLayerType::Player);
+		DontDestroyOnLoad(mPlayer);
+
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>(); 
 
 		CircleCollider2D* plCircleCol = mPlayer->AddComponent<CircleCollider2D>();

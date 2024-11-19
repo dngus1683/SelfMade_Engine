@@ -17,7 +17,8 @@ namespace sme
 		virtual void LateUpdate();
 		virtual void Render(HDC mHdc);
 		virtual void Destroy();
-
+		
+		void EraseGameObject(GameObject* eraseGameObject);
 		void AddGameObject(GameObject* gameObject);
 		const std::vector<GameObject*> GetGameObjects() { return mGameObjects; }
 	private:
