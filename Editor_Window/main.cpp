@@ -4,9 +4,13 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
-#include "../SelfMadeEngine_SOURCE/smeApplication.h"
 #include "../SelfMadeEngine_Window/smeLoadScenes.h"
 #include "../SelfMadeEngine_Window/smeLoadResources.h"
+#include "../SelfMadeEngine_Window/smeToolScene.h"
+
+#include "../SelfMadeEngine_SOURCE/smeApplication.h"
+#include "../SelfMadeEngine_SOURCE/smeResources.h"
+#include "../SelfMadeEngine_SOURCE/smeTexture.h"
 
 #define MAX_LOADSTRING 100
 
@@ -19,7 +23,7 @@ WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 
 // Forward declarations of functions included in this code module:
-ATOM                MyRegisterClass(HINSTANCE hInstance);
+ATOM                MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
@@ -45,7 +49,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance);
+    MyRegisterClass(hInstance, szWindowClass, WndProc);
+    MyRegisterClass(hInstance, L"TILEWINDOW", WndTileProc);
 
     // Perform application initialization:
     if (!InitInstance (hInstance, nCmdShow))
@@ -94,14 +99,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 //  PURPOSE: Registers the window class.
 //
-ATOM MyRegisterClass(HINSTANCE hInstance)
+ATOM MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc)
 {
     WNDCLASSEXW wcex;
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
+    wcex.lpfnWndProc    = proc;
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
@@ -109,7 +114,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
-    wcex.lpszClassName  = szWindowClass;
+    wcex.lpszClassName  = name;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
@@ -135,7 +140,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    const UINT height = 846;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, -10000, width, height, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+
+   HWND ToolWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
+       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
    application.Initialize(hWnd, width, height);
 
@@ -150,12 +158,29 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    // Gdi를 할당한 후, 주소값을 gpToken에 저장.
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
+
+
    // load Scene
    sme::LoadResources();
    sme::LoadScenes();
 
    int a = 0;
    srand((unsigned int)&a);
+
+   // Tile 윈도우 크기 조정.
+   sme::graphics::Texture* texture 
+       = sme::Resources::Find<sme::graphics::Texture>(L"SpringFloor");
+   RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
+   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+   UINT mWidth = rect.right - rect.left;
+   UINT mHeight = rect.bottom - rect.top;
+
+   SetWindowPos(ToolWnd, nullptr, width, 0, mWidth, mHeight, 0);
+
+   ShowWindow(ToolWnd, true);
+   UpdateWindow(ToolWnd);
+
 
    return TRUE;
 }
@@ -209,6 +234,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
+
+
 
 // Message handler for about box.
 INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)

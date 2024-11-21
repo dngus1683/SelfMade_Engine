@@ -76,6 +76,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeTileMapRenderer.cpp">
+      <Filter>TileMapRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h">
@@ -162,6 +165,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeTileMapRenderer.h">
+      <Filter>TileMapRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -214,6 +220,9 @@
     </Filter>
     <Filter Include="Collision">
       <UniqueIdentifier>{5757e8d5-6613-40cb-8e27-d8dd328511aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TileMapRenderer">
+      <UniqueIdentifier>{1aaa3fa0-4490-41d4-bdbc-3f502f7c91f2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

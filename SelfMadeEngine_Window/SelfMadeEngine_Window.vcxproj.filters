@@ -33,6 +33,12 @@
     <ClInclude Include="smeCatScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="smeToolScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="smeTile.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeLoadScenes.h">
@@ -55,6 +61,12 @@
     </ClCompile>
     <ClCompile Include="smeCatScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="smeToolScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="smeTile.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

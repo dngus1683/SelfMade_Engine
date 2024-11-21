@@ -26,6 +26,7 @@ namespace sme
 		{
 			None,
 			BackGroud,
+			Tile,
 			Animal,
 			Player,
 			Particle,

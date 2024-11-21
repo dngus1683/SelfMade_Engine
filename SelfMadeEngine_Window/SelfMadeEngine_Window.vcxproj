@@ -142,7 +142,9 @@
     <ClInclude Include="smePlayer.h" />
     <ClInclude Include="smePlayerScript.h" />
     <ClInclude Include="smePlayScene.h" />
+    <ClInclude Include="smeTile.h" />
     <ClInclude Include="smeTitleScene.h" />
+    <ClInclude Include="smeToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeCatScript.cpp" />
@@ -151,7 +153,9 @@
     <ClCompile Include="smePlayer.cpp" />
     <ClCompile Include="smePlayerScript.cpp" />
     <ClCompile Include="smePlayScene.cpp" />
+    <ClCompile Include="smeTile.cpp" />
     <ClCompile Include="smeTitleScene.cpp" />
+    <ClCompile Include="smeToolScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
