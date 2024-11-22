@@ -47,6 +47,7 @@ namespace sme
 			Tile* tile = Instantiate<Tile>(enums::eLayerType::Tile);
 			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
 			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			tmr->SetIndex(TileMapRenderer::SelectedIndex);
 
 			tile->SetPosition(idxX, idxY);
 		}
@@ -83,21 +84,21 @@ LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 {
 	switch (message)
 	{
-	case WM_COMMAND:
+	case WM_LBUTTONDOWN:
 	{
-		//int wmId = LOWORD(wParam);
-		//// Parse the menu selections:
-		//switch (wmId)
-		//{
-		//case IDM_ABOUT:
-		//	DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-		//	break;
-		//case IDM_EXIT:
-		//	DestroyWindow(hWnd);
-		//	break;
-		//default:
-		//	return DefWindowProc(hWnd, message, wParam, lParam);
-		//}
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(hWnd, &mousePos);
+
+		sme::math::Vector2 mousePosition;
+		mousePosition.x = mousePos.x;
+		mousePosition.y = mousePos.y;
+
+		int idxX = mousePosition.x / sme::TileMapRenderer::OriginTileSize.x;
+		int idxY = mousePosition.y / sme::TileMapRenderer::OriginTileSize.y;
+
+		sme::TileMapRenderer::SelectedIndex = sme::math::Vector2(idxX, idxY);
+		
 	}
 	break;
 	case WM_PAINT:

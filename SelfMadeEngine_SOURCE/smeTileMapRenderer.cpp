@@ -7,13 +7,15 @@
 namespace sme
 {
 	Vector2 TileMapRenderer::TileSize = Vector2::One;;
+	Vector2 TileMapRenderer::SelectedIndex = Vector2(0.f, 0.f);
+	Vector2 TileMapRenderer::OriginTileSize = Vector2(16.f, 16.f);
 
 	TileMapRenderer::TileMapRenderer()
 		: mTexture(nullptr)
 		, mSize(Vector2(3.f, 3.f))
 		, Component(enums::eComponentType::SpriteRenderer)
 		, mIndex(Vector2::One)
-		, mTileSize(16.f, 16.f)
+		, mTileSize(Vector2(16.f, 16.f))
 	{
 		TileSize = mTileSize * mSize;
 	}

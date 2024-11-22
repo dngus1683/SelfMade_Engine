@@ -18,8 +18,11 @@ namespace sme
 		void Render(HDC hdc) override;
 
 		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
+		void SetIndex(Vector2 InIndex) { mIndex = InIndex; }
 		void SetSize(math::Vector2 size) { mSize = size; }
-
+		
+		static Vector2 OriginTileSize;
+		static Vector2 SelectedIndex;
 		static Vector2 TileSize;
 	private:
 
