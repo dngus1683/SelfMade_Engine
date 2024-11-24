@@ -95,7 +95,18 @@ namespace sme
 		GetCursorPos(&mousePos);
 		ScreenToClient(application.GetHwnd(), &mousePos);
 
-		mMousePosition.x = mousePos.x;
-		mMousePosition.y = mousePos.y;
+		UINT width = application.GetWidth();
+		UINT height = application.GetHeight();
+
+		mMousePosition.x = -1.f;
+		mMousePosition.y = -1.f;
+		if (mousePos.x < width && mousePos.x > 0)
+		{
+			mMousePosition.x = mousePos.x;
+		}
+		if (mousePos.y < height && mousePos.y > 0)
+		{
+			mMousePosition.y = mousePos.y;
+		}
 	}
 }

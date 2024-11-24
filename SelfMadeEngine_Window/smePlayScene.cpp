@@ -18,6 +18,8 @@
 #include "smeBoxCollider2D.h"
 #include "smeCollisionManager.h"
 #include "smeCircleCollider2D.h"
+#include "smeTile.h"
+#include "smeTileMapRenderer.h"
 
 namespace sme
 {
@@ -32,6 +34,34 @@ namespace sme
 
 	void PlayScene::Initialize()
 	{
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, L"..\\test", L"rb");
+
+		while (true)
+		{
+			int idxX = 0;
+			int idxY = 0;
+			int posX = 0;
+			int posY = 0;
+
+			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+				break;
+
+
+			Tile* tile = Instantiate<Tile>(enums::eLayerType::Tile, Vector2(posX, posY));
+			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			tmr->SetIndex(Vector2(idxX, idxY));
+
+		}
+		fclose(pFile);
+
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 	
 		// main camera

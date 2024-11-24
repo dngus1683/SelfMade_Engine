@@ -20,6 +20,7 @@ namespace sme
 		void SetTexture(graphics::Texture* texture) { mTexture = texture; }
 		void SetIndex(Vector2 InIndex) { mIndex = InIndex; }
 		void SetSize(math::Vector2 size) { mSize = size; }
+		Vector2 GetIndex() { return mIndex; }
 		
 		static Vector2 OriginTileSize;
 		static Vector2 SelectedIndex;

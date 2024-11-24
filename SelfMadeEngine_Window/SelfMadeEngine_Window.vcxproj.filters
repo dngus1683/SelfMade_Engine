@@ -39,6 +39,9 @@
     <ClInclude Include="smeTile.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="smeCameraScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="smeLoadScenes.h">
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="smeTile.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="smeCameraScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

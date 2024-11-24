@@ -1,6 +1,6 @@
 #pragma once
 #include "../SelfMadeEngine_SOURCE/smeScene.h"
-
+#include "smeTile.h"
 namespace sme
 {
 	class ToolScene : public Scene
@@ -17,7 +17,11 @@ namespace sme
 		void OnEnter() override;
 		void OnExit() override;
 
+		void Save();
+		void Load();
+
 	private:
+		std::vector<Tile*> mTiles;
 	};
 }
 

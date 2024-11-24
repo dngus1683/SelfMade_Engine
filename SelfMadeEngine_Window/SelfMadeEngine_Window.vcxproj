@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="smeCameraScript.h" />
     <ClInclude Include="smeCatScript.h" />
     <ClInclude Include="smeCat.h" />
     <ClInclude Include="smeLoadResources.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="smeToolScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="smeCameraScript.cpp" />
     <ClCompile Include="smeCatScript.cpp" />
     <ClCompile Include="smeCat.cpp" />
     <ClCompile Include="smeLoadScenes.h" />
