@@ -24,6 +24,7 @@ namespace sme
 		static Scene* GetActiveScene() { return mActiveScene; }
 		static Scene* GetDontDestroyOnLoad() { return mDontDestroyOnLoad; }
 		static std::map<std::wstring, Scene*> GetmScene() { return mScene; }
+		static std::vector<GameObject*> GetGameObjects(enums::eLayerType layer);
 
 		static void Initialize();
 		static void Update();

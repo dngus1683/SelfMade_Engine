@@ -20,6 +20,9 @@
 #include "smeCircleCollider2D.h"
 #include "smeTile.h"
 #include "smeTileMapRenderer.h"
+#include "smeRigidbody.h"
+#include "smeFloor.h"
+#include "smeFloorScript.h"
 
 namespace sme
 {
@@ -34,36 +37,6 @@ namespace sme
 
 	void PlayScene::Initialize()
 	{
-		FILE* pFile = nullptr;
-		_wfopen_s(&pFile, L"..\\test", L"rb");
-
-		while (true)
-		{
-			int idxX = 0;
-			int idxY = 0;
-			int posX = 0;
-			int posY = 0;
-
-			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
-				break;
-			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
-				break;
-			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
-				break;
-			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
-				break;
-
-
-			Tile* tile = Instantiate<Tile>(enums::eLayerType::Tile, Vector2(posX, posY));
-			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
-			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
-			tmr->SetIndex(Vector2(idxX, idxY));
-
-		}
-		fclose(pFile);
-
-		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
-	
 		// main camera
 		GameObject* camera = Instantiate<GameObject>(enums::eLayerType::None, Vector2(336.f, 423.f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
@@ -77,7 +50,7 @@ namespace sme
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>(); 
 
-		CircleCollider2D* plCircleCol = mPlayer->AddComponent<CircleCollider2D>();
+		BoxCollider2D* plCircleCol = mPlayer->AddComponent<BoxCollider2D>();
 		plCircleCol->SetOffset(Vector2(-50.f, -50.f));
 
 		//cameraComp->SetTarget(mPlayer);
@@ -93,7 +66,16 @@ namespace sme
 
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(350.f, 300.f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.f, 300.f));
+
+		mPlayer->AddComponent<Rigidbody>();
+
+
+		// ¹Ù´Ú
+		Floor* floor = Instantiate<Floor>(enums::eLayerType::Floor, Vector2(100.f, 600.f));
+		BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
+		floorCol->SetSize(Vector2(10.f, 5.f));
+		floor->AddComponent<FloorScript>();
 
 
 
@@ -147,14 +129,15 @@ namespace sme
 
 	void PlayScene::OnEnter()
 	{
+		Scene::OnEnter();
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
 	}
 
 	void PlayScene::OnExit()
 	{
-		/*
-		Transform* tr = mPlayer->GetComponent<Transform>();
-		tr->SetPosition(Vector2(0.f, 0.f));
-		*/
+		Scene::OnExit();
+		CollisionManager::Clear();
 	}
 
 }

@@ -139,6 +139,8 @@
     <ClInclude Include="smeCameraScript.h" />
     <ClInclude Include="smeCatScript.h" />
     <ClInclude Include="smeCat.h" />
+    <ClInclude Include="smeFloor.h" />
+    <ClInclude Include="smeFloorScript.h" />
     <ClInclude Include="smeLoadResources.h" />
     <ClInclude Include="smePlayer.h" />
     <ClInclude Include="smePlayerScript.h" />
@@ -151,6 +153,8 @@
     <ClCompile Include="smeCameraScript.cpp" />
     <ClCompile Include="smeCatScript.cpp" />
     <ClCompile Include="smeCat.cpp" />
+    <ClCompile Include="smeFloor.cpp" />
+    <ClCompile Include="smeFloorScript.cpp" />
     <ClCompile Include="smeLoadScenes.h" />
     <ClCompile Include="smePlayer.cpp" />
     <ClCompile Include="smePlayerScript.cpp" />

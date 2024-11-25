@@ -9,6 +9,7 @@
 #include "smeObject.h"
 #include "smeResources.h"
 #include "smeCollider.h"
+#include "smeRigidbody.h"
 
 namespace sme
 {
@@ -146,22 +147,29 @@ namespace sme
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
+		Rigidbody* rb = GetOwner()->GetComponent<Rigidbody>();
+
 		if (Input::GetKey(eKeyCode::RIGHT))
 		{
-			pos.x += 100.f * Time::DeltaTime();
+			rb->AddForce(Vector2(200.f, 0.f));
 		}
 		if (Input::GetKey(eKeyCode::LEFT))
 		{
-			pos.x -= 100.f * Time::DeltaTime();
+			rb->AddForce(Vector2(-200.f, 0.f));
 		}
 		if (Input::GetKey(eKeyCode::UP))
 		{
-			pos.y -= 100.f * Time::DeltaTime();
+			Vector2 velocity = rb->GetVelocity();
+			velocity.y = -500.f;
+			rb->SetVelocity(velocity);
+			rb->SetGround(false);
+			 
 		}
 		if (Input::GetKey(eKeyCode::DOWN))
 		{
-			pos.y += 100.f * Time::DeltaTime();
+			rb->AddForce(Vector2(0.f, 200.f));
 		}
+
 
 		tr->SetPosition(pos);
 

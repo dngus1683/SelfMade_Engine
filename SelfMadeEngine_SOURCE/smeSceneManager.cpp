@@ -7,6 +7,15 @@ namespace sme
 	Scene* SceneManager::mActiveScene = nullptr;
 	Scene* SceneManager::mDontDestroyOnLoad = nullptr;
 
+	std::vector<GameObject*> SceneManager::GetGameObjects(enums::eLayerType layer)
+	{
+		std::vector<GameObject*> gameObjects = mActiveScene->GetLayer(layer)->GetGameObjects();
+		std::vector<GameObject*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetGameObjects();
+		
+		gameObjects.insert(gameObjects.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
+		
+		return gameObjects;
+	}
 
 	void SceneManager::Initialize()
 	{

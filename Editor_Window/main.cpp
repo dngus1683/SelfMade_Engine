@@ -9,6 +9,7 @@
 #include "../SelfMadeEngine_Window/smeToolScene.h"
 
 #include "../SelfMadeEngine_SOURCE/smeApplication.h"
+#include "../SelfMadeEngine_SOURCE/smeSceneManager.h"
 #include "../SelfMadeEngine_SOURCE/smeResources.h"
 #include "../SelfMadeEngine_SOURCE/smeTexture.h"
 
@@ -133,53 +134,59 @@ ATOM MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
 
-   hInst = hInstance; // Store instance handle in our global variable
+    hInst = hInstance; // Store instance handle in our global variable
 
-   // 해상도 크기
-   const UINT width = 672;
-   const UINT height = 846;
+    // 해상도 크기
+    const UINT width = 672;
+    const UINT height = 846;
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   HWND ToolWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+    application.Initialize(hWnd, width, height);
 
-   application.Initialize(hWnd, width, height);
+    if (!hWnd)
+    {
+        return FALSE;
+    }
 
-   if (!hWnd)
-   {
-      return FALSE;
-   }
+    ShowWindow(hWnd, nCmdShow);
+    UpdateWindow(hWnd);
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
-
-   // Gdi를 할당한 후, 주소값을 gpToken에 저장.
-   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
+    // Gdi를 할당한 후, 주소값을 gpToken에 저장.
+    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
 
 
-   // load Scene
-   sme::LoadResources();
-   sme::LoadScenes();
+    // load Scene
+    sme::LoadResources();
+    sme::LoadScenes();
 
-   int a = 0;
-   srand((unsigned int)&a);
+    int a = 0;
+    srand((unsigned int)&a);
 
-   // Tile 윈도우 크기 조정.
-   sme::graphics::Texture* texture 
-       = sme::Resources::Find<sme::graphics::Texture>(L"SpringFloor");
-   RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
-   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+    // Tile 윈도우 크기 조정. -- Tool Scene
+    sme::Scene* activeScene = sme::SceneManager::GetActiveScene();
+    std::wstring name = activeScene->GetName();
+    if (name == L"ToolScene")
+    {
+       HWND ToolWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
+            CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   UINT mWidth = rect.right - rect.left;
-   UINT mHeight = rect.bottom - rect.top;
+       sme::graphics::Texture* texture 
+           = sme::Resources::Find<sme::graphics::Texture>(L"SpringFloor");
+       RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
+       AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
-   SetWindowPos(ToolWnd, nullptr, width, 0, mWidth, mHeight, 0);
+       UINT mWidth = rect.right - rect.left;
+       UINT mHeight = rect.bottom - rect.top;
 
-   ShowWindow(ToolWnd, true);
-   UpdateWindow(ToolWnd);
+       SetWindowPos(ToolWnd, nullptr, width, 0, mWidth, mHeight, 0);
+
+       ShowWindow(ToolWnd, true);
+       UpdateWindow(ToolWnd);
+    }
+
 
 
    return TRUE;

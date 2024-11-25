@@ -1,5 +1,6 @@
 #pragma once
 #include "../SelfMadeEngine_SOURCE/smeScene.h"
+#include "../SelfMadeEngine_SOURCE/smeCollisionManager.h"
 
 namespace sme
 {

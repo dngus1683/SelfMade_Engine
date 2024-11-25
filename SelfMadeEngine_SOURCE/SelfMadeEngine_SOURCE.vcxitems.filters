@@ -79,6 +79,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeTileMapRenderer.cpp">
       <Filter>Component\TileMapRenderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeRigidbody.cpp">
+      <Filter>Component\Rigidbody</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h">
@@ -168,6 +171,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeTileMapRenderer.h">
       <Filter>Component\TileMapRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeRigidbody.h">
+      <Filter>Component\Rigidbody</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -223,6 +229,9 @@
     </Filter>
     <Filter Include="Component\TileMapRenderer">
       <UniqueIdentifier>{1aaa3fa0-4490-41d4-bdbc-3f502f7c91f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Rigidbody">
+      <UniqueIdentifier>{1be32133-f595-400c-8eee-f5e87aaf8e70}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

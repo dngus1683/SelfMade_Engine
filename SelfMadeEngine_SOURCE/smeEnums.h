@@ -8,6 +8,7 @@ namespace sme
 		{
 			Transform,
 			Collider,
+			Rigidbody,
 			Script,
 			SpriteRenderer,
 			Animator,
@@ -29,6 +30,7 @@ namespace sme
 			Tile,
 			Animal,
 			Player,
+			Floor,
 			Particle,
 			Max = 16,
 		};
