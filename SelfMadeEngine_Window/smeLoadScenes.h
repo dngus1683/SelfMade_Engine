@@ -10,9 +10,9 @@ namespace sme
 {
 	void LoadScenes()
 	{
-		//SceneManager::CreateScene<TitleScene>(L"TitleScene");
+		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
-		//SceneManager::CreateScene<ToolScene>(L"PlayScene");
+		SceneManager::CreateScene<ToolScene>(L"ToolScene");
 
 		SceneManager::LoadScene(L"PlayScene");
 	}

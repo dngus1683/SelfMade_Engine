@@ -43,5 +43,12 @@ namespace sme
 			Prefab,
 			End,
 		};
+
+		enum class eUIType
+		{
+			HpBar,
+			Button,
+			End
+		};
 	}
 }

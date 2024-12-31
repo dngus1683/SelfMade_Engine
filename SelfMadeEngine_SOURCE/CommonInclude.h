@@ -10,6 +10,8 @@
 #include <functional>
 #include <filesystem>
 #include <bitset>
+#include <stack>
+#include <queue>
 
 #include "smeMath.h"
 

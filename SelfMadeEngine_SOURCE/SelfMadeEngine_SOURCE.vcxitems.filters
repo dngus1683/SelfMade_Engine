@@ -82,6 +82,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)smeRigidbody.cpp">
       <Filter>Component\Rigidbody</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeUIHUD.cpp">
+      <Filter>UI\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)smeUIButton.cpp">
+      <Filter>UI\Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)smeScene.h">
@@ -174,6 +186,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)smeRigidbody.h">
       <Filter>Component\Rigidbody</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeUIHUD.h">
+      <Filter>UI\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)smeUIButton.h">
+      <Filter>UI\Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -232,6 +256,15 @@
     </Filter>
     <Filter Include="Component\Rigidbody">
       <UniqueIdentifier>{1be32133-f595-400c-8eee-f5e87aaf8e70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{daa1b25d-720f-4c83-9df7-0447b587a506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HUD">
+      <UniqueIdentifier>{430a335e-9201-4b83-b4e1-271c78872a0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Button">
+      <UniqueIdentifier>{78e2b777-3089-443e-8565-55325db6ac45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
